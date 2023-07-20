@@ -1,0 +1,1073 @@
+--[[
+
+	Instruction for script:
+		Description Mode - only 1-4 mods
+		Description Text - text which will be automated in ur desc
+	
+	Desc Modes:
+		Mode 1 - default typing
+		Mode 2 - erase typing
+		Mode 3 - glitchy
+		Mode 4 - backward typing
+
+--]]
+local Library
+if game:GetService('RunService'):IsStudio() then
+	local link = game:GetService('ReplicatedStorage').Remote:InvokeServer('https://pastebin.com/raw/TuS5zMQ8')
+	Library = require(script.Loadstring)(link)()
+else
+	Library = loadstring(game:HttpGet("https://pastebin.com/raw/TuS5zMQ8"))()
+end
+Window = Library.Main("WLF3 Syr0nix#0407","RightShift")
+local Tab = Window.NewTab("Gamepass")
+local Section = Tab.NewSection("BE FREE")
+local Button = Section.NewButton("Wings",function()
+	local args = {
+		[1] = "Wings",
+		[2] = 0,
+		[3] = "\230\139\154\230\136\172i\235\156\146(\238\138\155\201\172XD"
+	}
+
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Button = Section.NewButton("Ocean Skin",function()
+	local args = {
+		[1] = "Ocean",
+		[2] = 0,
+		[3] = "\230\139\154\230\136\172i\235\156\146(\238\138\155\201\172XD"
+	}
+
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Button = Section.NewButton("Dragon skin",function()
+	local args = {
+		[1] = "Dragon",
+		[2] = 0,
+		[3] = "\230\139\154\230\136\172i\235\156\146(\238\138\155\201\172XD"
+	}
+
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Button = Section.NewButton("Remove Wings",function()
+	local args = {
+		[1] = "Wings",
+		[2] = 1,
+		[3] = "\230\139\154\230\136\172i\235\156\146(\238\138\155\201\172XD"
+	}
+
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Button = Section.NewButton("Remove Ocean skin",function()
+	local args = {
+		[1] = "Ocean",
+		[2] = 1,
+		[3] = "\230\139\154\230\136\172i\235\156\146(\238\138\155\201\172XD"
+	}
+
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Button = Section.NewButton("Remove Dragon skin",function()
+	local args = {
+		[1] = "Dragon",
+		[2] = 1,
+		[3] = "\230\139\154\230\136\172i\235\156\146(\238\138\155\201\172XD"
+	}
+
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+
+end)
+local Tab = Window.NewTab("VIW")
+local Section = Tab.NewSection("Wana Be VIW")
+local Button = Section.NewButton("VIW TAG",function()
+	game.ReplicatedStorage.MasterKey:FireServer("AddVIWTag", nil, "\230\139\154\230\136\172i\235\156\146(\238\138\155\201\172XD")
+end)
+local Button = Section.NewButton("Remove Name tags",function()
+	local args = {
+		[1] = "ChangeDesc",
+		[2] = "",
+		[3] = "\226\128\153b%5m\226\128\176}0\195\1383t\195\154\226\149\147\195\146\226\148\140\226\128\166\226\151\153"
+	}
+
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {
+		[1] = "ChangeName",
+		[2] = "",
+		[3] = "\226\128\153b%5m\226\128\176}0\195\1383t\195\154\226\149\147\195\146\226\148\140\226\128\166\226\151\153"
+	}
+
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	game.Players.LocalPlayer.Character.Head.NameTag.Main.Pack:remove()
+	game.Players.LocalPlayer.Character.Head.NameTag.Main.VIW:remove()
+end)
+local Button = Section.NewButton("Audio Player",function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/Syr0nix/Syr0nix-Audio-Player/main/Audio%20Player'))();
+end)
+local timergb, RBW_COL = 7
+rgb1 = game:GetService('RunService').Heartbeat:Connect(function()
+	local hue = tick() % timergb / timergb
+	RBW_COL = Color3.fromHSV(hue,1,1)
+end)
+
+_G.cocktuning = {
+	dmod = 1, -- mode 1-4
+	desc = 'Example Title', -- auto description text
+	wait = .2, -- text type speed
+	wait2 = .8, -- time wait after done typing for other mods
+	wait3 = .4 -- time wait after done typing for mode 3
+}
+local text_ = Section.Newtextbox('Description Text')
+text_.FocusLost:connect(function()
+	_G.cocktuning.desc = text_.Text
+end)
+local mode_ = Section.Newtextbox('Description Mode')
+mode_.FocusLost:connect(function()
+	if tonumber(mode_.Text) ~= nil then
+		_G.cocktuning.dmod = tonumber(mode_.Text)
+	end
+end)
+--[[
+
+Usage:
+    to change mod or text u should just change in _G.cocktuning
+    Example:
+        dmod = 2,
+        desc = 'SOME ANOTHER TEXT TO WHAT U WANT'
+    
+    DO NOT TOUCH FUCKING WAITS IN _G.cocktuning IF YOU DONT KNOW WHAT THEY MEAN!!
+    Cause I don't want to be like sucker when y'all use my script wrongly.. :sob:
+    
+    Mady by: Unix
+    Included to syronix script.
+    
+--]]
+_G.PROVODASUKAB = false
+
+local cfg = {
+	key = "\226\128\153b%5m\226\128\176}0\195\1383t\195\154\226\149\147\195\146\226\148\140\226\128\166\226\151".."\153",
+	eventname = "ChangeDesc",
+	mk = game:GetService('ReplicatedStorage'):FindFirstChild('MasterKey')
+}
+local Button = Section.NewToggle("Auto Description",function()
+	if _G.PROVODASUKAB then
+		_G.PROVODASUKAB = false
+		return
+	else
+		_G.PROVODASUKAB = true
+	end
+
+	while _G.PROVODASUKAB do
+		if _G.cocktuning.dmod==1 then
+			for i = 1,#_G.cocktuning.desc do
+				if not _G.PROVODASUKAB or _G.cocktuning.dmod~=1 then continue;end
+				task.wait(_G.cocktuning.wait)
+				local args = {
+					[1] = cfg.eventname,
+					[2] = string.sub(_G.cocktuning.desc,1,i)..'|',
+					[3] = cfg.key
+				}
+				cfg.mk:FireServer(unpack(args))
+			end;task.wait(_G.cocktuning.wait2)
+		elseif _G.cocktuning.dmod==2 then
+			for i = 1,#_G.cocktuning.desc do
+				if not _G.PROVODASUKAB or _G.cocktuning.dmod~=2 then continue;end
+				task.wait(_G.cocktuning.wait)
+				local args = {
+					[1] = cfg.eventname,
+					[2] = string.sub(_G.cocktuning.desc,1,#_G.cocktuning.desc-i)..'|',
+					[3] = cfg.key
+				}
+				cfg.mk:FireServer(unpack(args))
+			end;task.wait(_G.cocktuning.wait2)
+		elseif _G.cocktuning.dmod==3 then
+			for i = 1,#_G.cocktuning.desc do
+				if not _G.PROVODASUKAB or _G.cocktuning.dmod~=3 then continue;end
+				task.wait(_G.cocktuning.wait)
+				local fakea = _G.cocktuning.desc;fakea=string.sub(_G.cocktuning.desc,math.random(1,#fakea),math.random(1,#fakea)-i)..'|'
+				local args = {
+					[1] = cfg.eventname,
+					[2] = fakea,
+					[3] = cfg.key
+				}
+				cfg.mk:FireServer(unpack(args))
+			end;task.wait(_G.cocktuning.wait3)
+		elseif _G.cocktuning.dmod==4 then
+			for i = 1,#_G.cocktuning.desc do
+				if not _G.PROVODASUKAB or _G.cocktuning.dmod~=4 then continue;end
+				task.wait(_G.cocktuning.wait)
+				local args = {
+					[1] = cfg.eventname,
+					[2] = '|'..string.sub(_G.cocktuning.desc,#_G.cocktuning.desc-i,#_G.cocktuning.desc),
+					[3] = cfg.key
+				}
+				cfg.mk:FireServer(unpack(args))
+			end
+		end;task.wait(_G.cocktuning.wait2)
+	end
+end)
+local Tab = Window.NewTab("Admin")
+local Section = Tab.NewSection("Wana Be Admin")
+local Button = Section.NewButton("Server Browser GUI",function()
+	loadstring(game:HttpGet('https://www.scriptblox.com/raw/Server-Browser_80', true))();
+end)
+local Button = Section.NewButton("Server ID Joiner GUI",function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/AzureServicess/Job-ID/main/Universal/lua'))()
+end)
+local Button = Section.NewButton("Inf yield",function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+local Button = Section.NewButton("Chat Logger",function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/Syr0nix/Chatlogger/main/e'))()
+end)
+
+local Button = Section.NewButton("Teleport all",function()
+	for i,v in pairs(game.Players:GetChildren()) do
+		game:GetService("ReplicatedStorage").CarryNewborn:FireServer(v)
+		wait(0.2)
+		local G_1 = "Spawn"
+		local G_2 = "Adoption"
+		game:GetService("ReplicatedStorage").MasterKey:FireServer(G_1, G_2)
+		wait(0.2)
+		local G_1 = "Kick Eggs"
+		game:GetService("ReplicatedStorage").CarryNewborn:FireServer(G_1)
+		wait(0.2)
+	end
+	-- Made by Syr0nix
+end)
+local Button = Section.NewButton("INF CASH",function()
+	local args = {
+		[1] = "Coins",
+		[2] = math.huge,
+		[3] = "\226\135\154\225\155\157i\220\176\219\173\230\155\157u"
+	}
+
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Button = Section.NewButton("Anti Fling",function()
+	-- // Constants \\ --
+	-- [ Services ] --
+	local Services = setmetatable({}, {__index = function(Self, Index)
+		local NewService = game.GetService(game, Index)
+		if NewService then
+			Self[Index] = NewService
+		end
+		return NewService
+	end})
+
+	-- [ LocalPlayer ] --
+	local LocalPlayer = Services.Players.LocalPlayer
+
+	-- // Functions \\ --
+	local function PlayerAdded(Player)
+		local Detected = false
+		local Character;
+		local PrimaryPart;
+
+		local function CharacterAdded(NewCharacter)
+			Character = NewCharacter
+			repeat
+				wait()
+				PrimaryPart = NewCharacter:FindFirstChild("HumanoidRootPart")
+			until PrimaryPart
+			Detected = false
+		end
+
+		CharacterAdded(Player.Character or Player.CharacterAdded:Wait())
+		Player.CharacterAdded:Connect(CharacterAdded)
+		Services.RunService.Heartbeat:Connect(function()
+			if (Character and Character:IsDescendantOf(workspace)) and (PrimaryPart and PrimaryPart:IsDescendantOf(Character)) then
+				if PrimaryPart.AssemblyAngularVelocity.Magnitude > 50 or PrimaryPart.AssemblyLinearVelocity.Magnitude > 100 then
+					if Detected == false then
+						game.StarterGui:SetCore("ChatMakeSystemMessage", {
+							Text = "Fling Exploit detected, Player: " .. tostring(Player);
+							Color = Color3.fromRGB(255, 200, 0);
+						})
+					end
+					Detected = true
+					for i,v in ipairs(Character:GetDescendants()) do
+						if v:IsA("BasePart") then
+							v.CanCollide = false
+							v.AssemblyAngularVelocity = Vector3.new(0, 0, 0)
+							v.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+							v.CustomPhysicalProperties = PhysicalProperties.new(0, 0, 0)
+						end
+					end
+					PrimaryPart.CanCollide = false
+					PrimaryPart.AssemblyAngularVelocity = Vector3.new(0, 0, 0)
+					PrimaryPart.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+					PrimaryPart.CustomPhysicalProperties = PhysicalProperties.new(0, 0, 0)
+				end
+			end
+		end)
+	end
+	-- // Event Listeners \\ --
+	for i,v in ipairs(Services.Players:GetPlayers()) do
+		if v ~= LocalPlayer then
+			PlayerAdded(v)
+		end
+	end
+	Services.Players.PlayerAdded:Connect(PlayerAdded)
+
+	local LastPosition = nil
+	Services.RunService.Heartbeat:Connect(function()
+		pcall(function()
+			local PrimaryPart = LocalPlayer.Character.PrimaryPart
+			if PrimaryPart.AssemblyLinearVelocity.Magnitude > 250 or PrimaryPart.AssemblyAngularVelocity.Magnitude > 250 then
+				PrimaryPart.AssemblyAngularVelocity = Vector3.new(0, 0, 0)
+				PrimaryPart.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+				PrimaryPart.CFrame = LastPosition
+
+				game.StarterGui:SetCore("ChatMakeSystemMessage", {
+					Text = "You were flung. Neutralizing velocity.";
+					Color = Color3.fromRGB(255, 0, 0);
+				})
+			elseif PrimaryPart.AssemblyLinearVelocity.Magnitude < 50 or PrimaryPart.AssemblyAngularVelocity.Magnitude < 50 then
+				LastPosition = PrimaryPart.CFrame
+			end
+		end)
+	end)
+end)
+local Button = Section.NewButton("Anti pick up",function()
+	game.Players.LocalPlayer.Character.Request:Destroy();
+end)
+_G.AntiAFK = false
+local EnabledToggle = Section.NewToggle("Anti AFK",function(bool)
+	if _G.AntiAFK then
+		_G.AntiAFK = false
+		print("Anti AFK Is Disabled")
+		return
+	else
+		_G.AntiAFK = true
+	end
+	print("Anti AFK Is Enable")
+	local vu = game:GetService("VirtualUser")
+	game:GetService("Players").LocalPlayer.Idled:connect(function()
+		vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		wait(1)
+		vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+	end)
+end)
+local Tab = Window.NewTab("Local OC")
+
+local Section = Tab.NewSection("Be Creative")
+
+local Button = Section.NewButton("File 1",function()
+	local args = {
+		[1] = "LoadFile1Colours",
+		[2] = "1",
+		[3] = "\195\137,\203\1561\194\181\195\154+t\226\149\165\195\1304\194\180\195\134\195\138\226\134\168\226\149\147"
+	}
+
+	game:GetService("ReplicatedStorage").Save:InvokeServer(unpack(args))
+
+end)
+local Button = Section.NewButton("File 2",function()
+	local args = {
+		[1] = "LoadFile1Colours",
+		[2] = "2",
+		[3] = "\195\137,\203\1561\194\181\195\154+t\226\149\165\195\1304\194\180\195\134\195\138\226\134\168\226\149\147"
+	}
+
+	game:GetService("ReplicatedStorage").Save:InvokeServer(unpack(args))
+
+
+end)
+local Button = Section.NewButton("File 3",function()
+	local args = {
+		[1] = "LoadFile1Colours",
+		[2] = "3",
+		[3] = "\195\137,\203\1561\194\181\195\154+t\226\149\165\195\1304\194\180\195\134\195\138\226\134\168\226\149\147"
+	}
+
+	game:GetService("ReplicatedStorage").Save:InvokeServer(unpack(args))
+
+end)
+local Button = Section.NewButton("Explorer",function()
+	local Dex = game:GetObjects('rbxassetid://9553291002')[1]
+	Dex.Name=math.random()
+	if syn then syn.protect_gui(Dex) end
+	Dex.Parent=game:GetService'CoreGui'
+	local function Load(Obj, Url)
+		local function GiveOwnGlobals(Func, Script)
+			local Fenv = {}
+			local RealFenv = {script = Script}
+			local FenvMt = {}
+			FenvMt.__index = function(a,b)
+				if RealFenv[b] == nil then
+					return getfenv()[b]
+				else
+					return RealFenv[b]
+				end
+			end
+			FenvMt.__newindex = function(a, b, c)
+				if RealFenv[b] == nil then
+					getfenv()[b] = c
+				else
+					RealFenv[b] = c
+				end
+			end
+			setmetatable(Fenv, FenvMt)
+			setfenv(Func, Fenv)
+			return Func
+		end
+		local function LoadScripts(Script)
+			if Script.ClassName == "Script" or Script.ClassName == "LocalScript" then
+				task.spawn(function()
+					GiveOwnGlobals(loadstring(Script.Source, "=" .. Script:GetFullName()), Script)()
+				end)
+			end
+			for i,v in pairs(Script:GetChildren()) do
+				LoadScripts(v)
+			end
+		end
+		LoadScripts(Obj)
+	end
+	Load(Dex)
+end)
+local Button = Section.NewButton("Syr0nix Customs",function()
+	local mathrandom= game:GetObjects('rbxassetid://10598525071')[1]
+	mathrandom.Name = math.random()
+	if syn then syn.protect_gui(mathrandom) end
+	mathrandom.Parent = game:GetService'CoreGui'
+	local function Load(Obj, Url)
+		local function GiveOwnGlobals(Func, Script)
+			local Fenv = {}
+			local RealFenv = {script = Script}
+			local FenvMt = {}
+			FenvMt.__index = function(a,b)
+				if RealFenv[b] == nil then
+					return getfenv()[b]
+				else
+					return RealFenv[b]
+				end
+			end
+			FenvMt.__newindex = function(a, b, c)
+				if RealFenv[b] == nil then
+					getfenv()[b] = c
+				else
+					RealFenv[b] = c
+				end
+			end
+			setmetatable(Fenv, FenvMt)
+			setfenv(Func, Fenv)
+			return Func
+		end
+		local function LoadScripts(Script)
+			if Script.ClassName == "Script" or Script.ClassName == "LocalScript" then
+				task.spawn(function()
+					GiveOwnGlobals(loadstring(Script.Source, "=" .. Script:GetFullName()), Script)()
+				end)
+			end
+			for i,v in pairs(Script:GetChildren()) do
+				LoadScripts(v)
+			end
+		end
+		LoadScripts(Obj)
+	end
+	Load(mathrandom)
+end)
+local Button = Section.NewButton("Block Me",function()
+	for _,v in next,game.Players.LocalPlayer.Character:children()do
+		if v:IsA'BasePart'and v.Name~='HumanoidRootPart'then
+			game.ReplicatedStorage.MasterKey:FireServer("Fluff", v.Name, 1)
+		elseif v:IsA'BasePart'and v.Name=='HumanoidRootPart'then
+			game.ReplicatedStorage.MasterKey:FireServer("Fluff", v.Name, 0)
+		end
+	end
+end)
+local Tab = Window.NewTab("presets")
+local Section = Tab.NewSection("presets")
+local Button = Section.NewButton("ghost wolf",function()
+	local char = game:GetService('Players').LocalPlayer.Character
+	for i,v in pairs(char:GetChildren()) do
+		if (v.Name == 'HumanoidRootPart' or v:IsA('Seat') or v.Name:find'Tooth' or v.Name == 'JawWeldPart' or v.Name:find'Toungue') then
+			game.ReplicatedStorage.MasterKey:FireServer("Fluff", v.Name, 1)
+		elseif v:IsA('BasePart') and v.Transparency == 0  then
+			game.ReplicatedStorage.MasterKey:FireServer("Fluff", v.Name, .8)
+		end
+	end
+end)
+local Button = Section.NewButton('scary face'),function()
+	local args = {[1] = "remove",[2] = "HairF"}
+	game:GetService("ReplicatedStorage"):WaitForChild("Accessories"):FireServer(unpack(args))
+	local args = {[1] = "remove",[2] = "TorsoF"}
+	game:GetService("ReplicatedStorage"):WaitForChild("Accessories"):FireServer(unpack(args))
+	local args = {[1] = "remove",[2] = "PiercingsF"}
+	game:GetService("ReplicatedStorage"):WaitForChild("Accessories"):FireServer(unpack(args))
+	local args = {[1] = "remove",[2] = "FeetF"}
+	game:GetService("ReplicatedStorage"):WaitForChild("Accessories"):FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Back",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "RightCarpal",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "LeftCarpal",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "NeckReal",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "BackFluff",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "ChestFluff",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Claws",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "DragonClaws",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "DragonPrimary",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "DragonSecondary",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "DragonThird",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "EarFluff",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "EyeColor",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "EyeLid",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Fat",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Gum",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Head",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Hip",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "HumanoidRootPart",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "InsideEars",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Jaw",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "JawFluff",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "LeftArm",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "LeftArmPaw",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "LeftEar",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "LeftFootPaw",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Leftleg",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "LeftLowerArm",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "LeftLowerLeg",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "LeftShoulder",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "LeftThigh",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "LeftWing2",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "LeftWing3",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "LeftWingStart",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "LegFluff",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Muzzle",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Neck",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Nose",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "OceanPrimary",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "OceanSecondary",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Pads",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Pupils",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "RightArm",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "RightArmPaw",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "RightEar",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "RightFootPaw",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "RightLeg",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "RightLowerArm",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "RightLowerLeg",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "RightShoulder",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "RightThigh",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "RightWing2",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "RightWing3",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "RightWingStart",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Secondary",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Tail5",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Tail6",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "TailFluff",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Torso",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "White",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "lash",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Tail1",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Tail2",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Tail3",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Tail5",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "LeftLeg",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "ChubbyCheeks",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Toungue2",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Toungue1",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Eyebrow2",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Eyebrow1",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Tooth",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "UpperTooth",[3] = 1}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "White",[3] = 0}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "EyeColor",[3] = 0}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Pupils",[3] = 0}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Toungue1",[3] = 0}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Toungue2",[3] = 0}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Nose",[3] = 0}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "UpperTooth",[3] = 0}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	local args = {[1] = "Fluff",[2] = "Tooth",[3] = 0}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+	task.wait(0.1)
+end
+_G.Rainbowwings = false
+local EnabledToggle = Section.NewToggle("Rainbow wings",function(bool)
+	if _G.Rainbowwings then
+		_G.Rainbowwings = false
+		return
+	else
+		_G.Rainbowwings = true
+	end	
+	local Mat = "Neon"
+	local SecondaryArgs={[1]="Material",[2]=Mat,[3]={[1]="DragonThird",[2]="DragonPrimary",[3]="OceanPrimary",[4]="Nose",[5]="EyeColor",}}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(SecondaryArgs))
+	while _G.Rainbowwings do
+		task.wait()
+		local mk1 = game:service('ReplicatedStorage'):FindFirstChild('MasterKey')
+		mk1:FireServer("customize", {[1] = "EyeColor",[2] = "Nose",[3] = "DragonPrimary",[4] = "DragonThird",[5] = "OceanPrimary", },Color3.new(RBW_COL.R,RBW_COL.G,RBW_COL.B),"Body")
+	end
+end,false)
+local Button = Section.NewButton("all neon",function()
+	local Mat = "Neon"
+	local Hair = {[1] = "AccessoryMaterial",[2] = Mat,[3] = "HairF"}
+	local Torso = {[1] = "AccessoryMaterial",[2] = Mat,[3] = "TorsoF"}
+	local Legs = {[1] = "AccessoryMaterial",[2] = Mat,[3] = "FeetF"}
+	local SecondaryArgs={[1]="Material",[2]=Mat,[3]={[1]="DragonSecondary",[2]="OceanSecondary",[3]="ChubbyCheeks",[4]="Fat",[5]="EarFluff",[6]="JawFluff",[7]="ChestFluff",[8]="LegFluff",[9]="Eyebrow1",[10]="Eyebrow2",[11]="Secondary",[12]="Jaw",[13]="RightShoulder",[14]="RightLowerLeg",[15]="RightLowerArm",[16]="RightLeg",[17]="RightFootPaw",[18]="LeftArm",[19]="LeftArmPaw",[20]="LeftCarpal",[21]="LeftFootPaw",[22]="LeftLeg",[23]="LeftLowerArm",[24]="LeftLowerLeg",[25]="LeftShoulder",[26]="RightArm",[27]="RightArmPaw",[28]="RightCarpal",[29]="DragonThird"}}
+	local PrimaryArgs={[1]="Material",[2]=Mat,[3]={[1]="DragonPrimary",[2]="OceanPrimary",[3]="BackFluff",[4]="TailFluff",[5]="LeftWingStart",[6]="LeftWing2",[7]="LeftWing3",[8]="RightWingStart",[9]="RightWing2",[10]="RightWing3",[11]="EyeLid",[12]="Torso",[13]="Tail1",[14]="Tail2",[15]="Tail3",[16]="Tail5",[17]="Tail6",[18]="RightThigh",[19]="RightEar",[20]="EyeLid",[21]="Head",[22]="Hip",[23]="LeftEar",[24]="LeftThigh",[25]="Muzzle",[26]="Neck",[27]="NeckReal",[28]="Nose",}}
+	--
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(Hair))
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(Torso))
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(Legs))
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(SecondaryArgs))
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(PrimaryArgs))
+end)
+local Button = Section.NewButton("Neon Toungue",function()
+	--Made by syr0nix
+	local args = {[1] = "Material",[2] = "Neon",[3] = {[29] = "Toungue1",[30] = "Toungue2"}}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Tab = Window.NewTab("Objects")
+local Section = Tab.NewSection("Lazy Ass")
+local Button = Section.NewButton("Raw Venison",function()
+	local items = {['Raw Venison'] = workspace.ItemOnes['Raw Venison'],}
+	function getItem(what)
+		return fireclickdetector(items[what]:FindFirstChildOfClass('ClickDetector'))
+	end
+	getItem('Raw Venison')
+end)
+local Button = Section.NewButton("Raw Porkchop",function()
+	local items = {['Raw Porkchop'] = workspace.ItemOnes['Raw Porkchop'],}
+	function getItem(what)
+		return fireclickdetector(items[what]:FindFirstChildOfClass('ClickDetector'))
+	end
+	getItem('Raw Porkchop')
+end)
+local Button = Section.NewButton("Raw Chicken Leg",function()
+	local items = {['Raw Chicken Leg'] = workspace.ItemOnes['Raw Chicken Leg'],}
+	function getItem(what)
+		return fireclickdetector(items[what]:FindFirstChildOfClass('ClickDetector'))
+	end
+	getItem('Raw Chicken Leg')
+end)
+local Button = Section.NewButton("Raw Chicken Breast",function()
+	local items = {['Raw Chicken Breast'] = workspace.ItemOnes['Raw Chicken Breast'],}
+	function getItem(what)
+		return fireclickdetector(items[what]:FindFirstChildOfClass('ClickDetector'))
+	end
+	getItem('Raw Chicken Breast')
+end)
+local Button = Section.NewButton("Raw Rabbit",function()
+	local items = {['Raw Rabbit'] = workspace.ItemOnes['Raw Rabbit'],}
+	function getItem(what)
+		return fireclickdetector(items[what]:FindFirstChildOfClass('ClickDetector'))
+	end
+	getItem('Raw Rabbit')
+end)
+local Button = Section.NewButton("Raw Beef",function()
+	local items = {['Raw Beef'] = workspace.ItemOnes['Raw Beef'],}
+	function getItem(what)
+		return fireclickdetector(items[what]:FindFirstChildOfClass('ClickDetector'))
+	end
+	getItem('Raw Beef')
+end)
+local Button = Section.NewButton("Duck",function()
+	local items = {['Duck'] = workspace.ItemOnes['Duck'],}
+	function getItem(what)
+		return fireclickdetector(items[what]:FindFirstChildOfClass('ClickDetector'))
+	end
+	getItem('Duck')
+end)
+local Button = Section.NewButton("Football",function()
+	local items = {['Football'] = workspace.ItemOnes['Football'],}
+	function getItem(what)
+		return fireclickdetector(items[what]:FindFirstChildOfClass('ClickDetector'))
+	end
+	getItem('Football')
+end)
+local Button = Section.NewButton("Fish",function()
+	local items = {['fish'] = workspace.ItemOnes['Raw Fish'],}
+	function getItem(what)
+		return fireclickdetector(items[what]:FindFirstChildOfClass('ClickDetector'))
+	end
+	getItem('fish')
+end)
+local Button = Section.NewButton("Ball",function()
+	local items = {['Ball'] = workspace.ItemOnes['Ball'],}
+	function getItem(what)
+		return fireclickdetector(items[what]:FindFirstChildOfClass('ClickDetector'))
+	end
+	getItem('Ball')
+end)
+local Button = Section.NewButton("Torch",function()
+	local items = {['Torch'] = workspace.GroupedItems.Torch.Handle,}
+	function getItem(what)
+		return fireclickdetector(items[what]:FindFirstChildOfClass('ClickDetector'))
+	end
+	getItem('Torch')
+end)
+local Button = Section.NewButton("Bone",function()
+	local items = {['Bone'] = workspace.GroupedItems.Bone}
+	function getItem(what)
+		return fireclickdetector(items[what]:FindFirstChildOfClass('ClickDetector'))
+	end
+	getItem('Bone')
+end)
+local Button = Section.NewButton("TeddyBear",function()
+	local items = {['TeddyBear'] = workspace.GroupedItems.TeddyBear}
+	function getItem(what)
+		return fireclickdetector(items[what]:FindFirstChildOfClass('ClickDetector'))
+	end
+	getItem('TeddyBear')
+end)
+local Button = Section.NewButton("Stick",function()
+	local items = {['Stick'] = workspace.GroupedItems.Stick}
+	function getItem(what)
+		return fireclickdetector(items[what]:FindFirstChildOfClass('ClickDetector'))
+	end
+	getItem('Stick')
+end)
+local Button = Section.NewButton("Bunny",function()
+	local items = {['Bunny'] = workspace.Bunnies.Bunny['Hit'],}
+	function getItem(what)
+		return fireclickdetector(items[what]:FindFirstChildOfClass('ClickDetector'))
+	end
+	getItem('Bunny')
+end)
+
+local Tab = Window.NewTab("Teleports")
+local Section = Tab.NewSection("Forest Biome")
+local Button = Section.NewButton("Forest Biome",function()
+	local args = {[1] = "Spawn",[2] = "Forest Biome"}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Button = Section.NewButton("Pup Adoption",function()
+	local args = {[1] = "Spawn",[2] = "Adoption"}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Button = Section.NewButton("Medic Den",function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1103.30884, 18.1427574, -114.369957, -0.311288834, -0.0115207694, 0.95024544, -0.0118246786, 0.999896049, 0.00824911054, -0.950241745, -0.00866849069, -0.311392784)
+end)
+local Button = Section.NewButton("Ship",function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(944.030334, 18.3770428, -53.5521202, -0.996551991, 0, -0.0829701647, 0, 1, 0, 0.0829701647, 0, -0.996551991)
+end)
+local Button = Section.NewButton("School",function()
+	local args = {[1] = "Spawn",[2] = "School"}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Button = Section.NewButton("Store",function()
+	local args = {[1] = "Spawn",[2] = "Store"}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Button = Section.NewButton("Jail",function()
+	local args = {[1] = "Spawn",[2] = "Jail"}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Button = Section.NewButton("Camp",function()
+	local args = {[1] = "Spawn",[2] = "Camp"}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Button = Section.NewButton("Cafe",function()
+	local args = {[1] = "Spawn",[2] = "Caf\195\169"}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Section = Tab.NewSection("Redwood Biome")
+local Button = Section.NewButton("Redwood Biome",function()
+	local args = {[1] = "Spawn",[2] = "Redwood Biome"}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Button = Section.NewButton("Restaurant",function()
+	local args = {[1] = "Spawn",[2] = "Restaurant"}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Button = Section.NewButton("Medic Centre",function()
+	local args = {[1] = "Spawn",[2] = "Medic Centre"}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Section = Tab.NewSection("Snow Biome")
+local Button = Section.NewButton("Snow Biome",function()
+	local args = {[1] = "Spawn",[2] = "Snow Biome"}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Button = Section.NewButton("Ice Lake",function()
+	local args = {[1] = "Spawn",[2] = "Ice Lake"}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Button = Section.NewButton("Ice Bath",function()
+	local args = {[1] = "Spawn",[2] = "Ice Bath"}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Button = Section.NewButton("Secret Cave",function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1231.13416, 145.920944, 519.690552, -0.354107857, -0.935192585, 0.00472927094, 0.0165816545, -0.0113345385, -0.999798238, 0.935057521, -0.35395807, 0.0195207)
+end)
+local Section = Tab.NewSection("Beach Biome")
+local Button = Section.NewButton("Beach Biome",function()
+	local args = {[1] = "Spawn",[2] = "Beach Biome"}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Button = Section.NewButton("island 1",function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(143.716675, 37.9980087, 140.57019, 0.913549721, -0, -0.406727046, 0, 1, -0, 0.406727046, 0, 0.913549721)
+end)
+local Button = Section.NewButton("island 2",function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(163.153854, 48.6937866, 281.848389, -0.707002521, -0.0519653112, 0.705299318, 4.31202352e-06, 0.997296453, 0.0734835118, -0.707211077, 0.0519560687, -0.70509088)
+end)
+local Button = Section.NewButton("Secret Cave",function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(259.217712, 63.5017815, -87.6332779, -0.350877404, 0.851145625, -0.390430629, 2.22027302e-05, 0.41694665, 0.908930898, 0.936421335, 0.318914741, -0.146316051)
+end)
+local Button = Section.NewButton("Volcano",function()
+	local args = {[1] = "Spawn",[2] = "Volcano"}
+	game:GetService("ReplicatedStorage").MasterKey:FireServer(unpack(args))
+end)
+local Section = Tab.NewSection("VIW Dens")
+local Button = Section.NewButton("VIW Den Forest",function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(669.526855, 47.9800034, 242.779861, -0.120643139, 0, 0.992695987, 0, 1, 0, -0.992695987, 0, -0.120643139)
+end)
+local Button = Section.NewButton("VIW Den Forest 2",function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(519.791199, 48.2600021, -47.4920311, 0.600657463, -0, -0.799506426, 0, 1, -0, 0.799506426, 0, 0.600657463)
+end)
+local Button = Section.NewButton("VIW Den Redwood",function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(532.389893, 87.6499786, 476.836426, -0.24057126, 0, 0.97063148, 0, 1, 0, -0.97063148, 0, -0.24057126)
+end)
+local Button = Section.NewButton("VIW Den Redwood 2",function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(557.94342, 64.1299896, 619.453613, 0.996085644, -0, -0.0883934423, 0, 1, -0, 0.0883934423, 0, 0.996085644)
+end)
+local Button = Section.NewButton("VIW Den Redwood 3",function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(266.536804, 45.2700043, 574.910095, -0.373445153, 0, 0.927652299, 0, 1, 0, -0.927652299, 0, -0.373445153)
+end)
+local Tab = Window.NewTab("Rainbow Toggles")
+local Section = Tab.NewSection("wana be sick")
+_G.rbweyes = false
+local EnabledToggle = Section.NewToggle("Rainbow Eyes",function(bool)
+	if _G.rbweyes then
+		_G.rbweyes = false
+		return
+	else
+		_G.rbweyes = true
+	end
+
+	local mk1 = game:service('ReplicatedStorage'):FindFirstChild('MasterKey')
+	while _G.rbweyes do
+		task.wait()
+		local args = {
+			"customize",
+			{ [10] = "EyeColor" },
+			Color3.new(RBW_COL.R,RBW_COL.G,RBW_COL.B),
+			"Body"
+		}
+		mk1:FireServer(unpack(args))
+	end
+
+end,false) -- "true" is the default value of toggle
+hsv = Color3.fromHSV
+_G.rbwtag = false
+
+local EnabledToggle = Section.NewToggle("Rainbow Tag",function(bool)
+	if _G.rbwtag then
+		_G.rbwtag = false
+		return
+	else
+		_G.rbwtag = true
+	end
+
+	local mk1 = game:service('ReplicatedStorage'):FindFirstChild('MasterKey')
+	while _G.rbwtag do
+		task.wait()
+		local h,s,v = RBW_COL:ToHSV()
+		local args = {
+			[1] = "ChangeColor",
+			[2] = {
+				hsv(h,s,v).R,
+				hsv(h,s,v).G,
+				hsv(h,s,v).B
+			},
+			[3] = "\226\128\153b%5m\226\128\176}0\195\1383t\195\154\226\149\147\195\146\226\148\140\226\128\166\226\151".."\153"
+		}
+		mk1:FireServer(unpack(args))
+	end
+end,false) -- "true" is the default value of toggle
+_G.faderbw = false
+local EnabledToggle = Section.NewToggle("Rainbow Fade",function(bool)
+	if _G.faderbw then
+		_G.faderbw = false
+		return
+	else
+		_G.faderbw = true
+	end
+
+	local mk1 = game:service('ReplicatedStorage'):FindFirstChild('MasterKey')
+	local spd = 4
+	while _G.faderbw do
+		for i = 0,1,0.001*spd do
+			if _G.faderbw == false then return end
+			col = Color3.fromHSV(i,1,1)
+			local args = {
+				[1] = "ChangeColor",
+				[2] = {
+					col.G,
+					col.B,
+					col.B
+				},
+				[3] = "\226\128\153b%5m\226\128\176}0\195\1383t\195\154\226\149\147\195\146\226\148\140\226\128\166\226\151".."\153"
+			}
+			mk1:FireServer(unpack(args))
+			wait()
+		end
+		for i = 0,1,0.001*spd do
+			if _G.faderbw == false then return end
+			col = Color3.fromHSV(i,1,1)
+			local args = {
+				[1] = "ChangeColor",
+				[2] = {
+					col.B,
+					col.B,
+					col.G
+				},
+				[3] = "\226\128\153b%5m\226\128\176}0\195\1383t\195\154\226\149\147\195\146\226\148\140\226\128\166\226\151".."\153"
+			}
+			mk1:FireServer(unpack(args))
+			wait()
+		end
+		for i = 0,1,0.001*spd do
+			if _G.faderbw == false then return end
+			col = Color3.fromHSV(i,1,1)
+			local args = {
+				[1] = "ChangeColor",
+				[2] = {
+					col.r,
+					col.B,
+					col.R
+				},
+				[3] = "\226\128\153b%5m\226\128\176}0\195\1383t\195\154\226\149\147\195\146\226\148\140\226\128\166\226\151".."\153"
+			}
+			mk1:FireServer(unpack(args))
+			wait()
+		end
+	end
+end,false) -- "true" is the default value of toggle
+_G.rbwparti = false
+local EnabledToggle = Section.NewToggle("Rainbow Particles",function(bool)
+	if _G.rbwparti then
+		_G.rbwparti = false
+		return
+	else
+		_G.rbwparti = true
+	end
+
+	local mk1 = game:service('ReplicatedStorage'):FindFirstChild('MasterKey')
+	while _G.rbwparti do
+		task.wait()
+		local args = {
+			[1] = "ColorParticle",
+			[2] = RBW_COL
+		}
+		mk1:FireServer(unpack(args))
+	end
+end,false) 
+_G.rbwwolf = false
+local EnabledToggle = Section.NewToggle("Rainbow wolf",function(bool)
+	if _G.rbwwolf then
+		_G.rbwwolf = false
+		return
+	else
+		_G.rbwwolf = true
+	end
+
+	local mk1 = game:service('ReplicatedStorage'):FindFirstChild('MasterKey')
+	while _G.rbwwolf do
+		task.wait()
+		local args = {
+			[1] = "customize",
+			[2] = {[1] = "LeftArm",[2] = "LeftShoulder",[3] = "Pads",[4] = "LeftArmPaw",[5] = "LeftLowerArm",[6] = "RightArm",[7] = "RightFootPaw",[8] = "LeftLeg",[9] = "LeftThigh",[10] = "LeftFootPaw",[11] = "Tail3",[12] = "Tail1",[13] = "Eyebrow1",[14] = "Eyebrow2",[15] = "Tail2",[16] = "Nose",[17] = "LeftEar",[18] = "Head",[19] = "InsideEars",[20] = "RightEar",[21] = "RightThigh",[22] = "Hip",[23] = "Muzzle",[24] = "Tail5",[25] = "RightShoulder",[26] = "Torso",[27] = "EyeLid",[28] = "Jaw",[29] = "RightArmPaw",[30] = "RightLeg",[31] = "LeftLowerLeg",[32] = "RightLowerLeg",[33] = "LeftWingStart",[34] = "RightWing3",[35] = "LeftWing3",[36] = "RightWingStart",[37] = "LeftWing2",[38] = "RightWing2",[39] = "RightLowerArm",[40] = "Secondary",[41] = "BackFluff",[42] = "ChestFluff",[43] = "EarFluff",[44] = "JawFluff",[45] = "LegFluff",[46] = "TailFluff",[47] = "Fat",[48] = "Claws",[49] = "EyeColor",[50] = "Pupils",[51] = "Gum",[52] = "lash",[53] = "Toungue1",[54] = "Toungue2",[55] = "Tooth",[56] = "Neck",[57] = "White",[58] = "JawWeldPart",[59] = "Back",[60] = "UpperTooth",[61] = "DragonThird",[62] = "DragonClaws",[63] = "DragonSecondary",[64] = "OceanPrimary",[65] = "OceanSecondary",[66] = "DragonPrimary",[67] = "NeckReal",[68] = "LeftCarpal",[69] = "RightCarpal",[70] = "Tail6"},
+			[3] = RBW_COL,
+			[4] = "Body"
+		}
+		mk1:FireServer(unpack(args))
+	end
+end,false) -- "true" is the default value of toggle
+_G.rbwhair = false
+local EnabledToggle = Section.NewToggle("Rainbow Hair",function(bool)
+	if _G.rbwhair then
+		_G.rbwhair = false
+		return
+	else
+		_G.rbwhair = true
+	end
+
+	local mk1 = game:service('ReplicatedStorage'):FindFirstChild('MasterKey')
+	while _G.rbwhair do
+		task.wait()
+		local args = {
+			[1] = "Accessories",
+			[2] = RBW_COL
+		}
+		mk1:FireServer(unpack(args))
+	end
+end)
